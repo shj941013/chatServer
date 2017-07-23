@@ -21,7 +21,7 @@ io.on('connection', function (socket) {
 });
 
 /* Getting chats from the database */
-router.get('/:room', function(req, res, next) {
+router.get('/:room', function(req, res) {
   Chat.find({ room: req.params.room }, function (err, chats) {
     if (err) return next(err);
     res.json(chats);
